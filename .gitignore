@@ -1,8 +1,12 @@
+HELP.md
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+
+### H2 file based DB ###
+data/
 
 ### STS ###
 .apt_generated
