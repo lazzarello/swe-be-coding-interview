@@ -1,5 +1,6 @@
-package com.getourguide.interview;
+package com.getourguide.interview.controller;
 
+import com.getourguide.interview.dto.Activity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.getourguide.interview;
+package com.getourguide.interview.dto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
