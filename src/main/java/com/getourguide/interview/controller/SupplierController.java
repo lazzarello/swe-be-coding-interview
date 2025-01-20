@@ -1,6 +1,6 @@
 package com.getourguide.interview.controller;
 
-import com.getourguide.interview.dto.Supplier;
+import com.getourguide.interview.entity.Supplier;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.util.List;
@@ -25,10 +25,7 @@ public class SupplierController {
     public ResponseEntity<List<Supplier>> suppliersSearch(@PathVariable String search) {
         var list = (List<Supplier>) entityManager.createNativeQuery("SELECT * FROM GETYOURGUIDE.SUPPLIER", Supplier.class).getResultList();
         for(Supplier s: list) {
-            String sb =
-                new StringBuilder().append(s.getName()).append(s.getAddress()).append(s.getZip()).append(s.getCity())
-                    .append(s.getCountry()).toString();
-            if(sb.contains(search)) {
+            if(new StringBuilder().append(s.getName()).append(s.getAddress()).append(s.getZip()).append(s.getCity()).append(s.getCountry()).toString().contains(search)) {
                 return ResponseEntity.ok(List.of(s));
             }
         }

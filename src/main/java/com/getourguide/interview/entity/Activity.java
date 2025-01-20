@@ -1,16 +1,20 @@
-package com.getourguide.interview.dto;
+package com.getourguide.interview.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 @Data
 @Entity
-@Table(name = "getyourguide.activity")
+@Table(schema = "getyourguide", name = "activity")
 @NoArgsConstructor
 public class Activity {
     @Id
@@ -21,4 +25,7 @@ public class Activity {
     private String currency;
     private double rating;
     private boolean specialOffer;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @NotFound(action = NotFoundAction.IGNORE)
+    private Supplier supplier;
 }

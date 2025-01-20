@@ -1,14 +1,16 @@
-package com.getourguide.interview.dto;
+package com.getourguide.interview.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "getyourguide.supplier")
+@Table(schema="getyourguide", name = "supplier")
 @NoArgsConstructor
 public class Supplier {
     @Id
@@ -18,4 +20,6 @@ public class Supplier {
     private String zip;
     private String city;
     private String country;
+    @OneToMany(mappedBy = "supplier")
+    private List<Activity> activities;
 }
