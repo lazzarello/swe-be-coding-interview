@@ -1,9 +1,9 @@
 package com.getourguide.interview.service;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.getourguide.interview.controller.SupplierController;
 import com.getourguide.interview.repository.ActivityRepository;
+import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,6 +24,19 @@ class ActivityServiceTest {
     }
 
     @Test
-    void test() {
+    void testGetActivities() {
+        var testActivity = createActivity(
+            1L,
+            "Test Activity",
+            100,
+            5.0,
+            false,
+            createSupplier(1L, "Test Supplier")
+        );
+        when(activityRepository.findAll()).thenReturn(List.of(testActivity));
+
+        var result = activityService.getActivities();
+
+        Assertions.assertNotNull(result);
     }
 }
