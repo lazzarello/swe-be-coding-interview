@@ -1,4 +1,4 @@
-# Software Engineer Backend Coding Challenge
+# Software Engineer Backend Coding Interview
 
 ## Requirements
 * JDK 21
