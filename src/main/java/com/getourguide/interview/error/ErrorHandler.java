@@ -11,7 +11,7 @@ public class ErrorHandler {
 
     @ExceptionHandler
     public ResponseEntity<String> handleException(Exception e) {
-        log.error(e.getMessage());
+        log.error("An error occurred", e);
         return ResponseEntity.status(500).body("Something went wrong");
     }
 }
