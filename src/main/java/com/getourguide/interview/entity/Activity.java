@@ -31,7 +31,7 @@ public class Activity {
     private String title;
     private int price;
     private String currency;
-    private double rating;
+    private Double rating;
     private boolean specialOffer;
     @ManyToOne(fetch = FetchType.LAZY)
     @NotFound(action = NotFoundAction.IGNORE)
