@@ -48,15 +48,19 @@ This is probably easy to fix visually but...let's let our AI assistant do it! Wh
 The source of the problem seems to be that the SupplierController and the ActivitiesController use two different types of persistence. The SupplierController uses a native query and the ActivitiesController uses a repository.
 The imports of jakarta.persistence.EntityManager and the PersistenceContext seem to be different than the imports of ActivityDto and ActivityService. What does this mean?
 
-The SupplierController has a different naming convention from the ActivitiesController. Renaming it might help with this framework.
+The SupplierController has a different naming convention from the ActivitiesController. Renaming it to follow the conventions.
+
+the java package at com.getourguide.interview appears to be named incorrectly. What are the consequences of renaming it to getyoutguide?
 
 **Open questions**
 
 1. Q: How do I locate the runtime error?
     A: Load the /suppliers endpoint.
 2. How do I fix the runtime error?
+    A: Add a Data Transport Object based on a reference from the ActivitiesController. Keep the Service Layer and MVC petterns for the Suppliers
 3. Q: How do determine if there are other runtime errors?
     A: Run tests
 4. How do I expand the test coverage to check for the discovered runtime errors?
+    A: Augment generated some tests
 5. Q: How do I verify the test database is seeded?
     A: use `java -cp ~/.gradle/caches/modules-2/files-2.1/com.h2database/h2/2.3.232/4fcc05d966ccdb2812ae8b9a718f69226c0cf4e2/h2-2.3.232.jar org.h2.tools.Shell` to execute an interactive shell. Use SQL to verify tables and data exist. There is also a webapp explorer at `http://localhost:8080/h2-console`
