@@ -1,6 +1,5 @@
 package com.getourguide.interview.service;
 
-import com.getourguide.interview.controller.SuppliersController;
 import com.getourguide.interview.repository.ActivityRepository;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
