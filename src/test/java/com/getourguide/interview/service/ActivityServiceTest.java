@@ -1,6 +1,6 @@
 package com.getourguide.interview.service;
 
-import com.getourguide.interview.controller.SupplierController;
+import com.getourguide.interview.controller.SuppliersController;
 import com.getourguide.interview.repository.ActivityRepository;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
@@ -13,14 +13,12 @@ import static org.mockito.Mockito.*;
 
 class ActivityServiceTest {
     private ActivityRepository activityRepository;
-    private SupplierController supplierController;
     private ActivityService activityService;
 
     @BeforeEach
     void setup() {
         this.activityRepository = mock(ActivityRepository.class);
-        this.supplierController = mock(SupplierController.class);
-        this.activityService = new ActivityService(activityRepository, supplierController);
+        this.activityService = new ActivityService(activityRepository);
     }
 
     @Test
